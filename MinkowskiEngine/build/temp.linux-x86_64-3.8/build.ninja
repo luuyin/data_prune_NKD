@@ -1,0 +1,32 @@
+ninja_required_version = 1.3
+cxx = c++
+
+cflags = -pthread -B /home/sliu/miniconda3/envs/slak/compiler_compat -Wl,--sysroot=/ -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/home/sliu/miniconda3/envs/slak/lib/python3.8/site-packages/torch/include -I/home/sliu/miniconda3/envs/slak/lib/python3.8/site-packages/torch/include/torch/csrc/api/include -I/home/sliu/miniconda3/envs/slak/lib/python3.8/site-packages/torch/include/TH -I/home/sliu/miniconda3/envs/slak/lib/python3.8/site-packages/torch/include/THC -I/gpfs/work3/0/prjste21060/projects/datasets/TJ_RobustData/SLaK/MinkowskiEngine/src -I/gpfs/work3/0/prjste21060/projects/datasets/TJ_RobustData/SLaK/MinkowskiEngine/src/3rdparty -I/home/sliu/miniconda3/include -I/home/sliu/miniconda3/envs/slak/include/python3.8 -c
+post_cflags = -fopenmp -O3 -DCPU_ONLY -DTORCH_API_INCLUDE_EXTENSION_H '-DPYBIND11_COMPILER_TYPE="_gcc"' '-DPYBIND11_STDLIB="_libstdcpp"' '-DPYBIND11_BUILD_ABI="_cxxabi1011"' -DTORCH_EXTENSION_NAME=_C -D_GLIBCXX_USE_CXX11_ABI=0 -std=c++14
+ldflags = 
+
+rule compile
+  command = $cxx -MMD -MF $out.d $cflags -c $in -o $out $post_cflags
+  depfile = $out.d
+  deps = gcc
+
+
+
+build /gpfs/work3/0/prjste21060/projects/datasets/TJ_RobustData/SLaK/MinkowskiEngine/build/temp.linux-x86_64-3.8/gpfs/work3/0/prjste21060/projects/datasets/TJ_RobustData/SLaK/MinkowskiEngine/src/broadcast_cpu.o: compile /gpfs/work3/0/prjste21060/projects/datasets/TJ_RobustData/SLaK/MinkowskiEngine/src/broadcast_cpu.cpp
+build /gpfs/work3/0/prjste21060/projects/datasets/TJ_RobustData/SLaK/MinkowskiEngine/build/temp.linux-x86_64-3.8/gpfs/work3/0/prjste21060/projects/datasets/TJ_RobustData/SLaK/MinkowskiEngine/src/convolution_cpu.o: compile /gpfs/work3/0/prjste21060/projects/datasets/TJ_RobustData/SLaK/MinkowskiEngine/src/convolution_cpu.cpp
+build /gpfs/work3/0/prjste21060/projects/datasets/TJ_RobustData/SLaK/MinkowskiEngine/build/temp.linux-x86_64-3.8/gpfs/work3/0/prjste21060/projects/datasets/TJ_RobustData/SLaK/MinkowskiEngine/src/convolution_transpose_cpu.o: compile /gpfs/work3/0/prjste21060/projects/datasets/TJ_RobustData/SLaK/MinkowskiEngine/src/convolution_transpose_cpu.cpp
+build /gpfs/work3/0/prjste21060/projects/datasets/TJ_RobustData/SLaK/MinkowskiEngine/build/temp.linux-x86_64-3.8/gpfs/work3/0/prjste21060/projects/datasets/TJ_RobustData/SLaK/MinkowskiEngine/src/coordinate_map_manager.o: compile /gpfs/work3/0/prjste21060/projects/datasets/TJ_RobustData/SLaK/MinkowskiEngine/src/coordinate_map_manager.cpp
+build /gpfs/work3/0/prjste21060/projects/datasets/TJ_RobustData/SLaK/MinkowskiEngine/build/temp.linux-x86_64-3.8/gpfs/work3/0/prjste21060/projects/datasets/TJ_RobustData/SLaK/MinkowskiEngine/src/direct_max_pool.o: compile /gpfs/work3/0/prjste21060/projects/datasets/TJ_RobustData/SLaK/MinkowskiEngine/src/direct_max_pool.cpp
+build /gpfs/work3/0/prjste21060/projects/datasets/TJ_RobustData/SLaK/MinkowskiEngine/build/temp.linux-x86_64-3.8/gpfs/work3/0/prjste21060/projects/datasets/TJ_RobustData/SLaK/MinkowskiEngine/src/global_pooling_cpu.o: compile /gpfs/work3/0/prjste21060/projects/datasets/TJ_RobustData/SLaK/MinkowskiEngine/src/global_pooling_cpu.cpp
+build /gpfs/work3/0/prjste21060/projects/datasets/TJ_RobustData/SLaK/MinkowskiEngine/build/temp.linux-x86_64-3.8/gpfs/work3/0/prjste21060/projects/datasets/TJ_RobustData/SLaK/MinkowskiEngine/src/interpolation_cpu.o: compile /gpfs/work3/0/prjste21060/projects/datasets/TJ_RobustData/SLaK/MinkowskiEngine/src/interpolation_cpu.cpp
+build /gpfs/work3/0/prjste21060/projects/datasets/TJ_RobustData/SLaK/MinkowskiEngine/build/temp.linux-x86_64-3.8/gpfs/work3/0/prjste21060/projects/datasets/TJ_RobustData/SLaK/MinkowskiEngine/src/local_pooling_cpu.o: compile /gpfs/work3/0/prjste21060/projects/datasets/TJ_RobustData/SLaK/MinkowskiEngine/src/local_pooling_cpu.cpp
+build /gpfs/work3/0/prjste21060/projects/datasets/TJ_RobustData/SLaK/MinkowskiEngine/build/temp.linux-x86_64-3.8/gpfs/work3/0/prjste21060/projects/datasets/TJ_RobustData/SLaK/MinkowskiEngine/src/local_pooling_transpose_cpu.o: compile /gpfs/work3/0/prjste21060/projects/datasets/TJ_RobustData/SLaK/MinkowskiEngine/src/local_pooling_transpose_cpu.cpp
+build /gpfs/work3/0/prjste21060/projects/datasets/TJ_RobustData/SLaK/MinkowskiEngine/build/temp.linux-x86_64-3.8/gpfs/work3/0/prjste21060/projects/datasets/TJ_RobustData/SLaK/MinkowskiEngine/src/math_functions_cpu.o: compile /gpfs/work3/0/prjste21060/projects/datasets/TJ_RobustData/SLaK/MinkowskiEngine/src/math_functions_cpu.cpp
+build /gpfs/work3/0/prjste21060/projects/datasets/TJ_RobustData/SLaK/MinkowskiEngine/build/temp.linux-x86_64-3.8/gpfs/work3/0/prjste21060/projects/datasets/TJ_RobustData/SLaK/MinkowskiEngine/src/pruning_cpu.o: compile /gpfs/work3/0/prjste21060/projects/datasets/TJ_RobustData/SLaK/MinkowskiEngine/src/pruning_cpu.cpp
+build /gpfs/work3/0/prjste21060/projects/datasets/TJ_RobustData/SLaK/MinkowskiEngine/build/temp.linux-x86_64-3.8/gpfs/work3/0/prjste21060/projects/datasets/TJ_RobustData/SLaK/MinkowskiEngine/src/quantization.o: compile /gpfs/work3/0/prjste21060/projects/datasets/TJ_RobustData/SLaK/MinkowskiEngine/src/quantization.cpp
+build /gpfs/work3/0/prjste21060/projects/datasets/TJ_RobustData/SLaK/MinkowskiEngine/build/temp.linux-x86_64-3.8/pybind/minkowski.o: compile /gpfs/work3/0/prjste21060/projects/datasets/TJ_RobustData/SLaK/MinkowskiEngine/pybind/minkowski.cpp
+
+
+
+
+
